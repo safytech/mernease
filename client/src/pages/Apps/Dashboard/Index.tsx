@@ -166,9 +166,6 @@ const Dashboard = () => {
       <div className="space-y-6">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           
-          {/* ----------------------------- */}
-          {/* FIXED: RECENT USERS CARD      */}
-          {/* ----------------------------- */}
           <div className="
             rounded-2xl border border-gray-200
             bg-white 

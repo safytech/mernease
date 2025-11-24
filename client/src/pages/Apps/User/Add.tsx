@@ -168,9 +168,8 @@ const Add = () => {
                 />
               </div>
 
-              {/* Password + Status */}
-              <div className="flex items-start sm:col-span-2 gap-6">
-                <div className="relative w-1/2">
+
+                <div>
                   <Label>
                     {id ? "Change Password (optional)" : <>
                       Password <span className="text-red-600">*</span>
@@ -197,7 +196,7 @@ const Add = () => {
                   {id && <p className="text-xs mt-1 text-gray-500">Leave blank to keep current password</p>}
                 </div>
 
-                <div className="w-1/2 flex flex-col justify-end">
+                <div>
                   <Label className="mb-2">Status</Label>
                   <div className="flex items-center gap-4">
                     <ToggleSwitch
@@ -209,7 +208,6 @@ const Add = () => {
                     </span>
                   </div>
                 </div>
-              </div>
             </div>
 
             <div className="flex justify-end items-center gap-3 pt-6">

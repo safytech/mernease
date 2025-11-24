@@ -1,4 +1,3 @@
-// src/pages/Apps/User/Index.tsx
 import { PlusCircle, PencilLine, Trash2, Search, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
@@ -7,6 +6,7 @@ import Button from "@/components/ui/Button";
 import DataTable from "@/components/common/DataTable";
 import { useListQuery } from "@/hooks/useListQuery";
 import { useDeleteItem } from "@/hooks/useDeleteItem";
+import moment from "moment";
 
 const List = () => {
   const navigate = useNavigate();
@@ -33,6 +33,7 @@ const List = () => {
     { accessorKey: "fullname", header: "Full Name" },
     { accessorKey: "email", header: "Email" },
     { accessorKey: "phone", header: "Phone" },
+
     {
       accessorKey: "isActive",
       header: "Status",
@@ -48,12 +49,18 @@ const List = () => {
         ),
     },
     {
+      accessorKey: "createdAt",
+      header: "Created At",
+      cell: ({ row }: any) =>
+        moment(row.original.createdAt).format("DD MMM YYYY"),
+    },
+
+    {
       id: "actions",
       header: "Actions",
       cell: ({ row }: any) => (
         <div className="flex items-center gap-3">
 
-          {/* EDIT — always enabled */}
           <button
             type="button"
             onClick={() =>
@@ -69,7 +76,6 @@ const List = () => {
             <PencilLine className="w-4 h-4" />
           </button>
 
-          {/* DELETE — always enabled */}
           <button
             type="button"
             onClick={() =>
@@ -95,7 +101,6 @@ const List = () => {
       <ComponentCard>
         <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
 
-          {/* ADD — always enabled */}
           <Button onClick={() => navigate("/users/add")}>
             <PlusCircle className="w-4 h-4" /> Add
           </Button>
