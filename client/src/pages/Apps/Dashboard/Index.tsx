@@ -54,7 +54,6 @@ const Dashboard = () => {
         },
       },
     },
-
     stroke: { width: 3, colors: ["#fff"] },
     labels: [],
     legend: {
@@ -167,11 +166,20 @@ const Dashboard = () => {
       <div className="space-y-6">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           
-          {/* ------------------------------------------------------- */}
-          {/* FIXED: RECENT USERS CARD – removed justify-between      */}
-          {/* ------------------------------------------------------- */}
-
-          <div className="rounded-2xl border border-gray-200 bg-white px-4 pb-5 pt-4 dark:border-gray-800 dark:bg:white/[0.03] sm:px-6 flex flex-col h-[520px] justify-start">
+          {/* ----------------------------- */}
+          {/* FIXED: RECENT USERS CARD      */}
+          {/* ----------------------------- */}
+          <div className="
+            rounded-2xl border border-gray-200
+            bg-white 
+            dark:bg-[#0f172a]/50
+            px-4 pb-5 pt-4 
+            dark:border-gray-800 
+            sm:px-6 
+            flex flex-col 
+            justify-start 
+            h-[520px]
+          ">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90 mb-4">
               Recent Users
             </h3>
@@ -204,7 +212,7 @@ const Dashboard = () => {
                           <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text-white/90">
                             {u.fullname || "—"}
                           </TableCell>
-                          <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text:white/90">
+                          <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text-white/90">
                             {u.phone || "—"}
                           </TableCell>
                           <TableCell className="py-3 px-4">
@@ -226,9 +234,21 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* RIGHT: USERS BY STATUS – untouched */}
-          <div className="rounded-2xl border border-gray-200 bg:white px-4 pb-2 pt-4 dark:border-gray-800 dark:bg:white/[0.03] sm:px-6 flex flex-col justify-between h-[520px]">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text:white/90 mb-4">
+          {/* ----------------------------- */}
+          {/* USERS BY STATUS CARD          */}
+          {/* ----------------------------- */}
+          <div className="
+            rounded-2xl border border-gray-200 
+            bg-white 
+            dark:bg-[#0f172a]/50
+            px-4 pb-2 pt-4 
+            dark:border-gray-800
+            sm:px-6 
+            flex flex-col 
+            justify-between 
+            h-[520px]
+          ">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90 mb-4">
               Users by Status
             </h3>
 
@@ -238,8 +258,8 @@ const Dashboard = () => {
                   <Chart key={chartKey} options={chartOptions} series={chartSeries} type="donut" height={380} />
 
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none z-20">
-                    <p className="text-gray-600 text-sm">{centerLabel.title}</p>
-                    <p className="text-gray-900 dark:text:white text-2xl font-semibold">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">{centerLabel.title}</p>
+                    <p className="text-gray-900 dark:text-white text-2xl font-semibold">
                       {centerLabel.value}
                     </p>
                   </div>
