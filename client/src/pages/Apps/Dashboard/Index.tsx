@@ -22,7 +22,6 @@ const Dashboard = () => {
     usersByStatus: [],
   });
 
-  // chart state
   const [chartSeries, setChartSeries] = useState<number[]>([]);
   const [chartLabels, setChartLabels] = useState<string[]>([]);
   const [chartColors, setChartColors] = useState<string[]>([]);
@@ -33,7 +32,6 @@ const Dashboard = () => {
     }
   );
 
-  // UPDATED chartOptions with click event
   const [chartOptions, setChartOptions] = useState<ApexOptions>({
     chart: {
       type: "donut",
@@ -41,12 +39,9 @@ const Dashboard = () => {
       animations: { enabled: true },
       id: "users-by-status",
       redrawOnParentResize: true,
-
-      // FIX: renamed unused params
       events: {
         dataPointSelection: (_event, _chartContext, config) => {
           const index = config.dataPointIndex;
-
           if (index !== -1) {
             const selectedLabel = chartLabels[index];
             const selectedValue = chartSeries[index];
@@ -85,7 +80,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchDashboardData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchDashboardData = async () => {
@@ -103,7 +97,6 @@ const Dashboard = () => {
           usersByStatus: d.usersByStatus || [],
         });
 
-        // Users by status
         const labels = (d.usersByStatus || []).map((x: any) => x.status);
         const series = (d.usersByStatus || []).map((x: any) => x.count);
 
@@ -112,7 +105,6 @@ const Dashboard = () => {
           Inactive: "#EF4444",
         };
 
-        // FIX: added explicit type for `s`
         const colors = labels.map((s: string) => colorMap[s] || "#9CA3AF");
 
         setChartLabels(labels);
@@ -127,12 +119,9 @@ const Dashboard = () => {
             ...(prev.chart || {}),
             id: "users-by-status",
             redrawOnParentResize: true,
-
-            // FIX: renamed unused params
             events: {
               dataPointSelection: (_event, _chartContext, config) => {
                 const index = config.dataPointIndex;
-
                 if (index !== -1) {
                   const selectedLabel = labels[index];
                   const selectedValue = series[index];
@@ -178,95 +167,79 @@ const Dashboard = () => {
       <div className="space-y-6">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           
-          {/* LEFT: RECENT USERS */}
-          <div className="rounded-2xl border border-gray-200 bg-white px-4 pb-5 pt-4 dark:border-gray-800 dark:bg:white/[0.03] sm:px-6 flex flex-col justify-between h-[520px]">
+          {/* ------------------------------------------------------- */}
+          {/* FIXED: RECENT USERS CARD – removed justify-between      */}
+          {/* ------------------------------------------------------- */}
+
+          <div className="rounded-2xl border border-gray-200 bg-white px-4 pb-5 pt-4 dark:border-gray-800 dark:bg:white/[0.03] sm:px-6 flex flex-col h-[520px] justify-start">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90 mb-4">
               Recent Users
             </h3>
 
-            {data.recentUsers && data.recentUsers.length > 0 ? (
-              <Table>
-                <TableHeader className="border-gray-100 dark:border-gray-800 border-y bg-gray-50 dark:bg-white/5 rounded-t-xl">
-                  <TableRow>
-                    <TableCell
-                      isHeader
-                      className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300"
-                    >
-                      Full Name
-                    </TableCell>
-                    <TableCell
-                      isHeader
-                      className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300"
-                    >
-                      Phone
-                    </TableCell>
-                    <TableCell
-                      isHeader
-                      className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300"
-                    >
-                      Status
-                    </TableCell>
-                    <TableCell
-                      isHeader
-                      className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300"
-                    >
-                      Created At
-                    </TableCell>
-                  </TableRow>
-                </TableHeader>
+            <div className="flex-grow overflow-auto">
+              {data.recentUsers && data.recentUsers.length > 0 ? (
+                <Table>
+                  <TableHeader className="border-gray-100 dark:border-gray-800 border-y bg-gray-50 dark:bg-white/5 rounded-t-xl">
+                    <TableRow>
+                      <TableCell isHeader className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300">
+                        Full Name
+                      </TableCell>
+                      <TableCell isHeader className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300">
+                        Phone
+                      </TableCell>
+                      <TableCell isHeader className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300">
+                        Status
+                      </TableCell>
+                      <TableCell isHeader className="py-3 px-4 font-medium text-gray-600 text-start text-theme-xs dark:text-gray-300">
+                        Created At
+                      </TableCell>
+                    </TableRow>
+                  </TableHeader>
 
-                <TableBody className="divide-y divide-gray-100 dark:divide-gray-800">
-                  {data.recentUsers.map((u: any, i: number) => {
-                    const { color, label } = getBadgeDetails(!!u.isActive);
-                    return (
-                      <TableRow key={i}>
-                        <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text-white/90">
-                          {u.fullname || "—"}
-                        </TableCell>
-                        <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text-white/90">
-                          {u.phone || "—"}
-                        </TableCell>
-                        <TableCell className="py-3 px-4">
-                          <Badge size="sm" color={color as any}>
-                            {label}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="py-3 px-4 text-gray-500 text-theme-sm dark:text-gray-400 whitespace-nowrap">
-                          {moment(u.createdAt).format("DD MMM YYYY")}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            ) : (
-              <p className="text-gray-500 text-center py-6">
-                No recent users found.
-              </p>
-            )}
+                  <TableBody className="divide-y divide-gray-100 dark:divide-gray-800">
+                    {data.recentUsers.map((u: any, i: number) => {
+                      const { color, label } = getBadgeDetails(!!u.isActive);
+                      return (
+                        <TableRow key={i}>
+                          <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text-white/90">
+                            {u.fullname || "—"}
+                          </TableCell>
+                          <TableCell className="py-3 px-4 text-gray-800 text-theme-sm dark:text:white/90">
+                            {u.phone || "—"}
+                          </TableCell>
+                          <TableCell className="py-3 px-4">
+                            <Badge size="sm" color={color as any}>{label}</Badge>
+                          </TableCell>
+                          <TableCell className="py-3 px-4 text-gray-500 text-theme-sm dark:text-gray-400 whitespace-nowrap">
+                            {moment(u.createdAt).format("DD MMM YYYY")}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              ) : (
+                <p className="text-gray-500 text-center py-6">
+                  No recent users found.
+                </p>
+              )}
+            </div>
           </div>
 
-          {/* RIGHT: USERS BY STATUS */}
-          <div className="rounded-2xl border border-gray-200 bg-white px-4 pb-2 pt-4 dark:border-gray-800 dark:bg:white/[0.03] sm:px-6 flex flex-col justify-between h-[520px]">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90 mb-4">
+          {/* RIGHT: USERS BY STATUS – untouched */}
+          <div className="rounded-2xl border border-gray-200 bg:white px-4 pb-2 pt-4 dark:border-gray-800 dark:bg:white/[0.03] sm:px-6 flex flex-col justify-between h-[520px]">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text:white/90 mb-4">
               Users by Status
             </h3>
 
             <div className="flex-grow relative flex flex-col justify-center items-center overflow-visible">
               {chartSeries && chartSeries.length > 0 ? (
                 <div className="w-full flex flex-col items-center">
-                  <Chart
-                    key={chartKey}
-                    options={chartOptions}
-                    series={chartSeries}
-                    type="donut"
-                    height={380}
-                  />
+                  <Chart key={chartKey} options={chartOptions} series={chartSeries} type="donut" height={380} />
 
-                  {/* Center label */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none z-20">
                     <p className="text-gray-600 text-sm">{centerLabel.title}</p>
-                    <p className="text-gray-900 dark:text-white text-2xl font-semibold">
+                    <p className="text-gray-900 dark:text:white text-2xl font-semibold">
                       {centerLabel.value}
                     </p>
                   </div>
