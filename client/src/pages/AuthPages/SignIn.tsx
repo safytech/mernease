@@ -22,6 +22,8 @@ import type { IRootState } from "@/store";
 import { useApi } from "@/api";
 import { useLoading } from "@/context/LoadingContext";
 
+const APP_NAME = import.meta.env.VITE_APP_NAME;
+
 interface IFormInput {
   email: string;
   password: string;
@@ -36,8 +38,8 @@ export default function SignIn() {
   return (
     <>
       <PageMeta
-        title="React.js SignIn Dashboard | TailAdmin - React.js Admin Dashboard Template"
-        description="Sign-in page for TailAdmin React.js Dashboard Template"
+        title={`Sign In | ${APP_NAME} Admin Dashboard`}
+        description={`Sign in to the ${APP_NAME} to use the authentication, CRUD, API structure, and a full admin dashboard`}
       />
       <AuthLayout>
         <InnerSignInForm />
