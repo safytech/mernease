@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import serverless from 'serverless-http';
+
 import { handleErrorMiddleware } from "./utils/error.js";
 
 // 🌟 Static Route Imports
@@ -18,39 +20,42 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// Default test route
+// Test route
 app.get('/', (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello from MERNEASE API!");
 });
 
 // -------------------------------------------------------------
-// Register Static Routes
+// API Routes
 // -------------------------------------------------------------
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 // -------------------------------------------------------------
-// Error Handler (must be last)
+// Error Handler
 // -------------------------------------------------------------
 app.use(handleErrorMiddleware);
 
 // -------------------------------------------------------------
-// Start Server
+// MongoDB Connection
 // -------------------------------------------------------------
-async function startServer() {
-  try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("✅ MongoDB connected");
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.log("❌ MongoDB connection error:", err));
 
-    app.listen(3000, () => {
-      console.log("🚀 Server started on http://localhost:3000");
-    });
-
-  } catch (err) {
-    console.error("❌ Failed to start server:", err);
-    process.exit(1);
-  }
+// -------------------------------------------------------------
+// Local Mode (Normal Express Server)
+// -------------------------------------------------------------
+if (process.env.VERCEL !== "1") {
+  app.listen(3000, () => {
+    console.log("🚀 Local server running at http://localhost:3000");
+  });
 }
 
-startServer();
+// -------------------------------------------------------------
+// Vercel Serverless Export
+// -------------------------------------------------------------
+export const handler = serverless(app);
+export default app;
