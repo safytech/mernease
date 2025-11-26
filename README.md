@@ -18,10 +18,6 @@
 
 A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help developers build full-stack apps faster. Includes **authentication**, **admin dashboard**, **reusable components**, **API structure**, and a clean developer workflow.
 
----
-
-## 📸 Screenshots (Slideshow Style)
-
 <p align="center">
   <img src="signin.png" width="32%" />
   <img src="dashboard.png" width="32%" />
