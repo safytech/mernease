@@ -35,6 +35,7 @@ A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help 
 🎨 Dashboard UI Layout  
 🧠 Custom Hooks  
 📁 Clean Folder Structure  
+🌗 Dark & Light Mode Switch
 
 ---
 
