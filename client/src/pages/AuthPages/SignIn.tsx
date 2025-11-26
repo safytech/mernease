@@ -126,6 +126,7 @@ function InnerSignInForm() {
                 <Input
                   type="email"
                   id="email"
+                  value="mernease@gmail.com"
                   error={!!errors.email}
                   hint={errors.email ? "Please enter a valid email address" : ""}
                   placeholder="Enter your Email"
@@ -141,6 +142,7 @@ function InnerSignInForm() {
                   <Input
                     type={showPassword ? "text" : "password"}
                     id="password"
+                    value="12345"
                     placeholder="Enter Password"
                     error={!!errors.password}
                     hint={errors.password ? "Please enter a valid password" : ""}
