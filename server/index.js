@@ -8,6 +8,7 @@ import { handleErrorMiddleware } from "./utils/error.js";
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import dashboardRoutes from "./routes/dashboard.route.js";
+import resetRoutes from "./routes/reset.route.js";
 
 dotenv.config();
 const app = express();
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api", resetRoutes);
 
 // -------------------------------------------------------------
 // Error Handler (must be last)
