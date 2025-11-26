@@ -5,9 +5,6 @@
   <a href="https://github.com/safytech/mernease/network/members">
     <img src="https://img.shields.io/github/forks/safytech/mernease?style=for-the-badge&logo=github" />
   </a>
-  <a href="https://github.com/safytech/mernease/issues">
-    <img src="https://img.shields.io/github/issues/safytech/mernease?style=for-the-badge&logo=github" />
-  </a>
   <a href="https://github.com/safytech/mernease/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/safytech/mernease?style=for-the-badge" />
   </a>
