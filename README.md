@@ -1,3 +1,22 @@
+<p align="left">
+  <a href="https://github.com/safytech/mernease/stargazers">
+    <img src="https://img.shields.io/github/stars/safytech/mernease?style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://github.com/safytech/mernease/network/members">
+    <img src="https://img.shields.io/github/forks/safytech/mernease?style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://github.com/safytech/mernease/issues">
+    <img src="https://img.shields.io/github/issues/safytech/mernease?style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://github.com/safytech/mernease/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/safytech/mernease?style=for-the-badge" />
+  </a>
+  <img src="https://img.shields.io/badge/MERN-Full%20Stack-blue?style=for-the-badge&logo=mongodb" />
+  <a href="https://mernease.vercel.app">
+    <img src="https://img.shields.io/badge/Live-Demo-success?style=for-the-badge&logo=vercel" />
+  </a>
+</p>
+
 ## MERNEASE – Modern MERN Boilerplate (Free & Open Source)
 
 A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help developers build full-stack apps faster. Includes **authentication**, **admin dashboard**, **reusable components**, **API structure**, and a clean developer workflow. Perfect For Startups, Admin dashboards, Internal tools, Full-stack learning and Rapid prototyping.
