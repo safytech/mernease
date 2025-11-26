@@ -175,7 +175,7 @@ const Dashboard = () => {
             sm:px-6 
             flex flex-col 
             justify-start 
-            h-[520px]
+            h-[550px]
           ">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90 mb-4">
               Recent Users
@@ -243,7 +243,7 @@ const Dashboard = () => {
             sm:px-6 
             flex flex-col 
             justify-between 
-            h-[520px]
+            h-[550px]
           ">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90 mb-4">
               Users by Status
