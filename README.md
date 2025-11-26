@@ -20,16 +20,13 @@ A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help 
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots (Slideshow Style)
 
-### 🔐 Sign In
-![Sign In](signin.png)
-
-### 📊 Dashboard
-![Dashboard](dashboard.png)
-
-### 👥 User Management
-![Users](users.png)
+<p align="center">
+  <img src="signin.png" width="32%" />
+  <img src="dashboard.png" width="32%" />
+  <img src="users.png" width="32%" />
+</p>
 
 ---
 
