@@ -1,19 +1,18 @@
-# MERNEASE — Modern MERN Boilerplate (Free & Open Source)
+## MERNEASE – Modern MERN Boilerplate (Free & Open Source)
 
-A **production-ready MERN (MongoDB, Express, React, Node)** starter kit designed to help developers build full-stack applications faster.
-Includes **authentication**, **admin dashboard**, **reusable components**, **API structure**, **hooks**, and a clean developer experience.
+A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help developers build full‑stack apps faster.  
+Includes **authentication**, **admin dashboard**, **reusable components**, **API structure**, and a clean developer workflow.
 
-Perfect for:
-✔ Startups  
-✔ Admin dashboards  
-✔ Internal tools  
-✔ Full-stack learning  
-✔ Rapid prototyping  
+### ✔ Perfect For
+- ✔ Startups  
+- ✔ Admin dashboards  
+- ✔ Internal tools  
+- ✔ Full‑stack learning  
+- ✔ Rapid prototyping  
 
 ---
 
 ## 🚀 Features
-
 - 🔐 JWT Authentication  
 - 🔁 Forgot / Reset Password  
 - 🧩 Reusable UI Components  
@@ -25,45 +24,21 @@ Perfect for:
 
 ---
 
-## 📂 Folder Structure
-```
-mernease/
-│
-├── client/        # React + Vite frontend
-└── server/        # Node.js + Express backend
-```
+## 🛠 Installation
 
----
-
-## 🛠️ Installation
-
-### Client
-```bash
-cd client
-npm install
-```
-
-### Server
-```bash
-cd server
-npm install
-```
+| Section | Commands |
+|--------|----------|
+| **Client** | `cd client` <br> `npm install` |
+| **Server** | `cd server` <br> `npm install` |
 
 ---
 
 ## ▶️ Run Locally
 
-### Client
-```bash
-cd client
-npm run dev
-```
-
-### Server
-```bash
-cd server
-npm run start
-```
+| Section | Commands |
+|--------|----------|
+| **Client** | `cd client` <br> `npm run dev` |
+| **Server** | `cd server` <br> `npm run start` |
 
 ---
 
@@ -75,46 +50,8 @@ Password: 12345
 
 ---
 
-## 🧪 Tech Stack
+## ⭐ Support the Project  
+If MERNEASE helped you, consider giving the repo a **Star ⭐**.
 
-### Frontend
-- React  
-- React Router  
-- Custom Hooks  
-- Context API  
-- Reusable Components  
-
-### Backend
-- Node.js  
-- Express  
-- MongoDB (Mongoose)  
-- JWT Authentication  
-
----
-
-## 📦 Included Modules
-| Module | Description |
-|--------|-------------|
-| Auth | Login, Signup, Forgot/Reset Password |
-| Users | CRUD Operations |
-| Templates | Sample CRUD Module |
-
----
-
-## ⭐ Why MERNEASE?
-- Saves **40–60 hours** of initial setup  
-- Clean structure  
-- Beginner-friendly  
-- Production-ready  
-- Open source  
-
----
-
-## 🤝 Contributions
-PRs and suggestions are welcome!
-
----
-
-## ⭐ Support the Project
-If you like MERNEASE, please **Star** the repo — it helps a lot!
-
+## 🤝 Contributions  
+PRs and improvements are always welcome!
