@@ -1,7 +1,6 @@
 ## MERNEASE – Modern MERN Boilerplate (Free & Open Source)
 
-A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help developers build full-stack apps faster.  
-Includes **authentication**, **admin dashboard**, **reusable components**, **API structure**, and a clean developer workflow.
+A **production-ready MERN (MongoDB, Express, React, Node)** starter kit to help developers build full-stack apps faster. Includes **authentication**, **admin dashboard**, **reusable components**, **API structure**, and a clean developer workflow.
 
 ### 
 ✔ Perfect For
