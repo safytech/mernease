@@ -1,0 +1,65 @@
+
+.uppy-wrapper .uppy-Dashboard-inner {
+  background: transparent;
+}
+
+.dark .uppy-wrapper .uppy-Dashboard-inner {
+  background-color: transparent !important;
+  color: #e5e7eb !important;
+}
+
+.file-link {
+  color: #1f2937;
+  text-decoration: none;
+}
+.dark .file-link {
+  color: #e5e7eb;
+}
+
+.ta-swal-popup {
+  border-radius: 8px !important;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.35) !important;
+}
+
+.ta-swal-confirm {
+  background: #ef4444 !important; /* red-500 */
+  color: #fff !important;
+  border: 0 !important;
+  padding: 10px 18px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+
+.ta-swal-cancel {
+  background: #e5e7eb !important; /* gray-200 */
+  color: #111827 !important;
+  border: 0 !important;
+  padding: 10px 14px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  margin-left: 10px !important;
+}
+
+.ta-swal-actions {
+  justify-content: center !important;
+}
+
+li.opacity-0 {
+  transition: opacity 0.35s ease;
+}
+
+.uppy-Root {
+  border-radius: 8px;
+}
+
+.file-link {
+  color: #2563eb;
+  font-weight: 500;
+}
+.file-link:hover {
+  text-decoration: underline;
+}
+.dark .file-link {
+  color: #60a5fa;
+}
