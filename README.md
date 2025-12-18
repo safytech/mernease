@@ -27,12 +27,6 @@ https://www.youtube.com/watch?v=yhTRQgM8cFc
   <img src="client/public/images/git/users.png" width="32%" />
 </p>
 
-<p align="center">
-  <img src="client/public/images/git/signin.png" width="32%" />
-  <img src="client/public/images/git/dashboard.png" width="32%" />
-  <img src="client/public/images/git/users.png" width="32%" />
-</p>
-
 ---
 
 ## 🚀 Features
