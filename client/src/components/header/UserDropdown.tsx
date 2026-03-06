@@ -21,7 +21,6 @@ export default function UserDropdown() {
     console.log("Signout clicked");
 
     try {
-      const apiBase = import.meta.env.VITE_API_URL || "";
       const res = await fetch(`/api/user/signout`, {
         method: "POST",
         credentials: "include",
