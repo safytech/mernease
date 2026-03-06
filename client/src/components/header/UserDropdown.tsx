@@ -22,7 +22,7 @@ export default function UserDropdown() {
 
     try {
       const apiBase = import.meta.env.VITE_API_URL || "";
-      const res = await fetch(`${apiBase}/api/user/signout`, {
+      const res = await fetch(`/api/user/signout`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
